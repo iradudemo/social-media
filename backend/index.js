@@ -12,6 +12,8 @@ const path = require("path");
 const userRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/post");
+const conversationRouter = require("./routes/conversation");
+const messageRouter = require("./routes/messages");
 
 const app = express();
 
@@ -47,6 +49,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
+app.use("/api/conversations", conversationRouter);
+app.use("/api/messages", messageRouter);
 
 PORT = process.env.PORT;
 app.listen(PORT, console.log(`Server started at ${PORT}`));
